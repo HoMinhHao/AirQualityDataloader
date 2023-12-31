@@ -54,29 +54,29 @@ def load_data(name, train_set=True):
             print(error)
 
 # Function to get SHA256 data by class name
-def get_sha256(class_name, train_set=True):
-    """
-    Retrieve SHA256 data by class name from either the training or testing set.
+# def get_sha256(class_name, train_set=True):
+#     """
+#     Retrieve SHA256 data by class name from either the training or testing set.
 
-    Args:
-        class_name (str): The name of the class for which SHA256 data is requested.
-        train_set (bool, optional): A boolean flag indicating whether to retrieve data from the training set (default) or testing set.
+#     Args:
+#         class_name (str): The name of the class for which SHA256 data is requested.
+#         train_set (bool, optional): A boolean flag indicating whether to retrieve data from the training set (default) or testing set.
 
-    Returns:
-        list: A list of SHA256 strings associated with the specified class.
-    """
-    with zipfile.ZipFile(zip_file_path, 'r') as zip_file:
-        try:
-            if train_set:
-                with zip_file.open(f'MiniMalDroid2020/SHA256/train_set/{class_name}') as data_file:
-                    # Read and decode the data as UTF-8 and split it into lines
-                    return data_file.read().decode('utf-8').splitlines()
-            else:
-                with zip_file.open(f'MiniMalDroid2020/SHA256/test_set/{class_name}') as data_file:
-                    # Read and decode the data as UTF-8 and split it into lines
-                    return data_file.read().decode('utf-8').splitlines()
-        except Exception as error:
-            print(error)
+#     Returns:
+#         list: A list of SHA256 strings associated with the specified class.
+#     """
+#     with zipfile.ZipFile(zip_file_path, 'r') as zip_file:
+#         try:
+#             if train_set:
+#                 with zip_file.open(f'MiniMalDroid2020/SHA256/train_set/{class_name}') as data_file:
+#                     # Read and decode the data as UTF-8 and split it into lines
+#                     return data_file.read().decode('utf-8').splitlines()
+#             else:
+#                 with zip_file.open(f'MiniMalDroid2020/SHA256/test_set/{class_name}') as data_file:
+#                     # Read and decode the data as UTF-8 and split it into lines
+#                     return data_file.read().decode('utf-8').splitlines()
+#         except Exception as error:
+#             print(error)
 
 # Function to get a list of dataset names
 def get_list_dataset():
