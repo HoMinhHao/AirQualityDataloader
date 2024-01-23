@@ -10,12 +10,12 @@ temp_dir = tempfile.mkdtemp()
 
 
 # Define the default and backup server URLs for downloading the dataset
-default_server_url = "https://clouds.iec-uit.com/browser/iot-06.test/Dataset_raw.zip"
-backup_server_url = "https://clouds.iec-uit.com/browser/iot-06.test/Dataset_raw.zip"
+default_server_url = "http://clouds.iec-uit.com/iot-06.test/Dataset_raw.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=LXYLPI5QK2BQ7D70ZMBZ%2F20240123%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240123T070522Z&X-Amz-Expires=604800&X-Amz-Security-Token=eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJhY2Nlc3NLZXkiOiJMWFlMUEk1UUsyQlE3RDcwWk1CWiIsImV4cCI6MTcwNjAzNTA3NiwicGFyZW50IjoiaW90LTA2In0.8XcePENiJu4Ay9oM32GhG_HVXsHZ2ZCk5w2D2lcaEDrvxA2jM2kM4ILgvgpmeLx1a5vrC8C9fn3ycAaKZD2U6g&X-Amz-SignedHeaders=host&versionId=null&X-Amz-Signature=20264dad6bbfdc0778f8765d963a6c179013ca4e2637078e97f3abab6ad84322"
+backup_server_url = "http://clouds.iec-uit.com/iot-06.test/Dataset_raw.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=LXYLPI5QK2BQ7D70ZMBZ%2F20240123%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240123T070522Z&X-Amz-Expires=604800&X-Amz-Security-Token=eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJhY2Nlc3NLZXkiOiJMWFlMUEk1UUsyQlE3RDcwWk1CWiIsImV4cCI6MTcwNjAzNTA3NiwicGFyZW50IjoiaW90LTA2In0.8XcePENiJu4Ay9oM32GhG_HVXsHZ2ZCk5w2D2lcaEDrvxA2jM2kM4ILgvgpmeLx1a5vrC8C9fn3ycAaKZD2U6g&X-Amz-SignedHeaders=host&versionId=null&X-Amz-Signature=20264dad6bbfdc0778f8765d963a6c179013ca4e2637078e97f3abab6ad84322"
 
 # Specify the path for the downloaded ZIP file in the temporary directory
 zip_file_path = os.path.join(temp_dir, "Dataset_raw.zip")
-
+print(zip_file_path)
 # Check if the ZIP file already exists, if not, attempt to download it
 if not os.path.exists(zip_file_path):
     try:
