@@ -10,9 +10,8 @@ temp_dir = tempfile.mkdtemp()
 
 
 # Define the default and backup server URLs for downloading the dataset
-default_server_url = "http://clouds.iec-uit.com/iot-06.test/Dataset_raw.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=LXYLPI5QK2BQ7D70ZMBZ%2F20240123%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240123T073547Z&X-Amz-Expires=604800&X-Amz-Security-Token=eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJhY2Nlc3NLZXkiOiJMWFlMUEk1UUsyQlE3RDcwWk1CWiIsImV4cCI6MTcwNjAzNTA3NiwicGFyZW50IjoiaW90LTA2In0.8XcePENiJu4Ay9oM32GhG_HVXsHZ2ZCk5w2D2lcaEDrvxA2jM2kM4ILgvgpmeLx1a5vrC8C9fn3ycAaKZD2U6g&X-Amz-SignedHeaders=host&versionId=null&X-Amz-Signature=82d35a5b069b96233885855a6e1d702dde2c7d619d0a89a55b6656fa0383b1aa"
-backup_server_url = "http://clouds.iec-uit.com/iot-06.test/Dataset_raw.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=LXYLPI5QK2BQ7D70ZMBZ%2F20240123%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240123T073547Z&X-Amz-Expires=604800&X-Amz-Security-Token=eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJhY2Nlc3NLZXkiOiJMWFlMUEk1UUsyQlE3RDcwWk1CWiIsImV4cCI6MTcwNjAzNTA3NiwicGFyZW50IjoiaW90LTA2In0.8XcePENiJu4Ay9oM32GhG_HVXsHZ2ZCk5w2D2lcaEDrvxA2jM2kM4ILgvgpmeLx1a5vrC8C9fn3ycAaKZD2U6g&X-Amz-SignedHeaders=host&versionId=null&X-Amz-Signature=82d35a5b069b96233885855a6e1d702dde2c7d619d0a89a55b6656fa0383b1aa"
-
+default_server_url = "http://clouds.iec-uit.com/haohm.airquality/Dataset_raw.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ECNV7VV1HKVVTSKCSNU5%2F20240406%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240406T142649Z&X-Amz-Expires=604800&X-Amz-Security-Token=eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJhY2Nlc3NLZXkiOiJFQ05WN1ZWMUhLVlZUU0tDU05VNSIsImV4cCI6MTcxMjQ1NjYxMywicGFyZW50IjoiaGFvaG0ifQ.mCW4P4EBs0iIBXHj4QgSXXcOtA_DFSw00MfS7CeYAWw5QdHN1qN2SatPWWwGfqM70udvq7eHOO4KQ5mLI1F23g&X-Amz-SignedHeaders=host&versionId=null&X-Amz-Signature=9e2f30f5d737a8d6c608926cebd5542602b55da9cfe85bcc3445d74e71af9d90"
+backup_server_url = "http://clouds.iec-uit.com/haohm.airquality/Dataset_raw.zip?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ECNV7VV1HKVVTSKCSNU5%2F20240406%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240406T142649Z&X-Amz-Expires=604800&X-Amz-Security-Token=eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJhY2Nlc3NLZXkiOiJFQ05WN1ZWMUhLVlZUU0tDU05VNSIsImV4cCI6MTcxMjQ1NjYxMywicGFyZW50IjoiaGFvaG0ifQ.mCW4P4EBs0iIBXHj4QgSXXcOtA_DFSw00MfS7CeYAWw5QdHN1qN2SatPWWwGfqM70udvq7eHOO4KQ5mLI1F23g&X-Amz-SignedHeaders=host&versionId=null&X-Amz-Signature=9e2f30f5d737a8d6c608926cebd5542602b55da9cfe85bcc3445d74e71af9d90"
 # Specify the path for the downloaded ZIP file in the temporary directory
 zip_file_path = os.path.join(temp_dir, "Dataset_raw.zip")
 print(zip_file_path)
@@ -24,6 +23,7 @@ if not os.path.exists(zip_file_path):
     except:
         # If the default server fails, try the backup server URL
         request.urlretrieve(backup_server_url, zip_file_path)
+        
 
 # Function to load data from the ZIP file by name
 def load_data(name, train_set=True):
@@ -87,7 +87,7 @@ def get_list_dataset():
         list: A list of dataset names.
     """
     # Print and return a list of dataset names
-    return ['India_dataset_raw', 'Seoul_dataset_raw', 'Taiwan_dataset_raw']
+    return ['IndiaAirQuality', 'SeoulAirQuality', 'NorthernTaiwanAirQuality', 'UCIAirQuality', 'HCMCAirQuality', 'BeijingAirQuality']
 
 # Function to get a list of class names
 # def get_classname():
@@ -102,3 +102,4 @@ def get_list_dataset():
 
 if __name__ == "__main__":
     print("Wellcome to AndroAnalyzer Dataset!!!")
+    
